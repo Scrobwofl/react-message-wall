@@ -72,7 +72,7 @@ app.get("/messages/category/:category", async (req, res) => {
       `SELECT * FROM messages WHERE category = $1`,
       [category]
     );
-    res.json(result);
+    res.json(result.rows);
   } catch (error) {
     console.error(error);
     res.status(500).json(error);
